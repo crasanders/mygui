@@ -44,6 +44,9 @@ class Experiment():
                 frame.grid(row=r, column=c, padx=25, pady=5)
                 self.frames[r][c] = frame
 
+        self.lbl_trial = tk.Label(text=f"Trial: {self.trial}", master=self.frames[0][0])
+        self.lbl_trial.pack()
+
         lbl_intructions = tk.Label(text=self.instructions, master=self.frames[0][1])
         lbl_intructions.pack()
 
@@ -195,11 +198,16 @@ class Experiment():
             spamwriter.writerow(data)
             
 
+    def update_trial(self):
+        self.trial += 1
+        self.lbl_trial["text"] = f"Trial: {self.trial}"
+
+
     def submit(self):
         self.write_row()
         self.reset()
         self.get_next_signals()
-        self.trial += 1
+        self.update_trial()
     
 
     def run(self):
