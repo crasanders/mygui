@@ -157,6 +157,7 @@ class Experiment():
 
             if not all_remote:
                 self.btn_submit["state"] = "normal"
+                self.var_pref.set(self.default_pref)
             
             else:
                 if self.var_pref.get() != self.default_pref:
