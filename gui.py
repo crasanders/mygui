@@ -28,6 +28,8 @@ class Experiment():
 
         self.create_data_file()
         self.init_tk()
+        self.root.lift()
+        self.root.attributes("-topmost", True)
 
 
     def init_tk(self):
